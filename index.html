@@ -9,6 +9,31 @@
     <script src="./js/script.js" defer></script>
 </head>
 <body>
+    <h1 id="title">Magic Board!</h1>
+    <div id="options">
+        <div id="button-container">
+            <button class= "button-option" id="reset">Reset</button>
+            <button class= "button-option"id="clear">Clear</button>
+        </div>
+        <div id="input-conteiner">
+            <h3>Select Color: </h3>
+            <input type="color" value="#000000" class="input-option" id="inputColums">
+            <h3>Colums: </h3>
+            <input type="number" placeholder="16" max="99999" min="1" value="16" class="input-option" id="inputColums">
+            <h3>Rows: </h3>
+            <input type="number" placeholder="16" max="99999" min="1" value="16" class="input-option" id="inputRows">
+        </div>
+        <div id="pencil-type">
+            <div>
+                <input type="radio" id="pencil" name="pencilType" value="pencil" checked>
+                <label for="pencil">Pencil</label>
+            </div>
+            <div>
+                <input type="radio" id="eraser" name="pencilType" value="eraser">
+                <label for="eraser">Eraser</label>
+            </div>
+        </div>
+    </div>
     <div id="board-container">
         
     </div>
