@@ -31,7 +31,6 @@ function getRandomColor(){
     g=Math.floor(Math.random() * 255) + 0;
     b=Math.floor(Math.random() * 255) + 0;
     return `rgb(${r},${g},${b})`;
-    
 }
 function createGrid(nColums=nColumsDefault,nRows=nRowsDefault){
     const cellWidth = boardWidth/nRows + "rem";
@@ -154,7 +153,12 @@ function changeColorCell(){
 }
 function changeColor(){
     if (isPencilActive){
-        this.style.backgroundColor=colorCell;
+        if (drawTypeOption==1){
+            this.style.backgroundColor=colorCell;
+        }else if (drawTypeOption==2){
+            this.style.backgroundColor=getRandomColor();
+        }
+        
         console.log('color events have been created');
     }else{
         this.style.backgroundColor = 'white';
