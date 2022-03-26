@@ -17,8 +17,8 @@ let colorCell = colorCellDefault;
 
 //functions
 function createGrid(nColums=nColumsDefault,nRows=nRowsDefault){
-    const cellWidth = boardWidth/nColums + "rem";
-    const cellHeight = boardHeight/nRows +"rem";
+    const cellWidth = boardWidth/nRows + "rem";
+    const cellHeight = boardHeight/nColums +"rem";
     const boardContainer = document.querySelector('#board-container');
     
     let cellRows = [];
@@ -50,6 +50,8 @@ inputColor.addEventListener('change', changeColorCell);
 inputColor.addEventListener('input', changeColorCell);
 resetButton.addEventListener('click',resetBoard);
 clearButton.addEventListener('click',clearBoard);
+inputColums.addEventListener('input',changeGrid);
+inputRows.addEventListener('change',changeGrid);
 
 window.addEventListener('DOMContentLoaded', (event) => {
     createGrid();
@@ -58,9 +60,37 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 //event functions
+function changeGrid(){
+    if (inputColums.value>100){
+        nColums =100;
+        inputColums.value=100;
+    }else if (inputColums.value<1){
+        nColums =1;
+        inputColums.value=1;
+    }else{
+        nColums =inputColums.value;
+    }
+    if (inputRows.value>100){
+        nRows =100;
+        inputRows.value=100;
+    }else if (inputRows.value<1){
+        nRows =1;
+        inputRows.value=1;
+    }else{
+        nRows =inputRows.value;
+    }
+    const element = document.getElementById("board-container");
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+    createGrid(nColums,nRows);
+    console.log('changed grid')
+}
+
 function clearBoard(){
     const element = document.querySelectorAll('.cell');
     element.forEach(cellElement => cellElement.style.backgroundColor='white');
+    console.log('cleared board');
 }
 function resetBoard(){
     nColums = nColumsDefault;
@@ -71,6 +101,7 @@ function resetBoard(){
         element.removeChild(element.firstChild);
     }
     createGrid();
+    console.log('reseted board');
 }
 
 function changeColorCell(){
