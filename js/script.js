@@ -157,6 +157,20 @@ function changeColor(){
             this.style.backgroundColor=colorCell;
         }else if (drawTypeOption==2){
             this.style.backgroundColor=getRandomColor();
+        }else if (drawTypeOption==3){
+            let opacityCell=window.getComputedStyle(this).getPropertyValue("opacity");
+            
+            if (opacityCell == 1){
+                opacityCell = 0;
+                console.log(opacityCell);
+            }else if (opacityCell <0.9){
+                opacityCell = Number(opacityCell) + 0.1;
+            }else{
+                opacityCell = 0.9999;
+            }
+            this.style.backgroundColor=colorCell;
+            this.style.opacity = opacityCell;
+            console.log(window.getComputedStyle(this).getPropertyValue("opacity"));
         }
         
         console.log('color events have been created');
