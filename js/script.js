@@ -7,6 +7,9 @@ const inputColums = document.querySelector('#input-colums');
 const inputRows = document.querySelector('#input-rows');
 const inputPencil = document.querySelector('#pencil');
 const inputEraser = document.querySelector('#eraser');
+const inputNormal = document.querySelector('#normal');
+const inputRandom = document.querySelector('#random');
+const inputOpacity = document.querySelector('#opacity');
 
 
 //genral variables
@@ -17,8 +20,19 @@ const nRowsDefault = 16;
 const colorCellDefault = 'rgb(0, 0, 0)';
 let colorCell = colorCellDefault;
 let isPencilActive = true;
+let drawTypeOption = 1;
 
 //functions
+function getRandomColor(){
+    let r=0;
+    let g=0;
+    let b=0;
+    r=Math.floor(Math.random() * 255) + 0;
+    g=Math.floor(Math.random() * 255) + 0;
+    b=Math.floor(Math.random() * 255) + 0;
+    return `rgb(${r},${g},${b})`;
+    
+}
 function createGrid(nColums=nColumsDefault,nRows=nRowsDefault){
     const cellWidth = boardWidth/nRows + "rem";
     const cellHeight = boardHeight/nColums +"rem";
@@ -57,6 +71,9 @@ inputColums.addEventListener('input',changeGrid);
 inputRows.addEventListener('change',changeGrid);
 inputPencil.addEventListener('change',changePencilType);
 inputEraser.addEventListener('change',changePencilType);
+inputNormal.addEventListener('input',changeDrawType);
+inputRandom.addEventListener('input',changeDrawType);
+inputOpacity.addEventListener('input',changeDrawType);
 
 window.addEventListener('DOMContentLoaded', (event) => {
     createGrid();
@@ -65,6 +82,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 //event functions
+function changeDrawType(){
+    switch (this.value) {
+        case 'normal':
+            drawTypeOption=1;
+            break;
+        case 'random':
+            drawTypeOption=2;
+            break;
+        case 'opacity':
+            drawTypeOption=3;
+            break;
+        default:
+            drawTypeOption=0;
+            break;
+    }
+}
 function changePencilType(){
     isPencilActive = !isPencilActive;
 }
