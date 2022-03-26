@@ -60,28 +60,8 @@ body {
     background-color: blueviolet;
     padding: 1rem;
 }
-#pencil-type{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    margin: 0px;
-    padding: 5px;
-    height: 4rem;
-    border-radius: 3px;
-    background-color: rgb(154, 154, 231);
-}
 
-#pencil-type div {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    font-size: medium;
-}
+#pencil-type,
 #draw-type{
     display: flex;
     justify-content: center;
@@ -94,6 +74,8 @@ body {
     border-radius: 3px;
     background-color: rgb(154, 154, 231);
 }
+
+.pencil-option,
 .draw-option {
     display: flex;
     flex-direction: column;
@@ -101,6 +83,12 @@ body {
     padding: 0px;
     justify-items: center;
     font-size:small;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.pencil-option{
+    font-size: large;
 }
 
 
