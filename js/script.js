@@ -180,7 +180,9 @@ function changeColor(){
         
         console.log('color events have been created');
     }else{
-        this.style.backgroundColor = 'white';
+        this.style.opacity =0;
+        this.style.backgroundColor='white';
+        console.log(window.getComputedStyle(this).getPropertyValue("opacity"));
         console.log(`erasered cell`)
     }
 }
