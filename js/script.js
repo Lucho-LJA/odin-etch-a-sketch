@@ -1,8 +1,9 @@
 //variables html
 const boardContainer = document.querySelector('#board-selector');
 //genral variables
-boardWidth = 60;
-boardHeight = 60;
+const boardWidth = 60;
+const boardHeight = 60;
+let colorCell = 'rgb(0, 0, 0)';
 //functions
 function createGrid(nColums=16,nRows=16){
     const cellWidth = boardWidth/nColums + "rem";
@@ -27,6 +28,13 @@ function createGrid(nColums=16,nRows=16){
         }
         
     }
-
+    console.log('grid has been created');
+    let cells = document.querySelectorAll(".cell");
+    cells.forEach(oneCell => oneCell.addEventListener("mouseover", changeColor));
+}
+function changeColor(){
+    this.style.backgroundColor=colorCell;
+    alert(otr);
 }
 createGrid();
+
