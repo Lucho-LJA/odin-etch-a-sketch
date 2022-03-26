@@ -6,9 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: lightblue;
-    justify-content: center;
     justify-items: center;
-    align-content: center;
     margin: 0px;
     padding: 0px;
 }
@@ -41,7 +39,6 @@ body {
     justify-content: center;
     justify-items: center;
     gap: 0.75rem;
-    align-items: center;
     align-content: center;
     margin: 0px;
     padding: 5px;
@@ -106,11 +103,26 @@ body {
     height: 2rem;
 }
 
-#board-container {
+#board-container,
+#board-big-container {
     display: flex;
-    margin:0px;
-    padding: 10px;
+    margin:5px;
+    padding: 0px;
     justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+  }
+
+#board-container {
+    background-color: aliceblue;
+    border-style: solid;
+    border-color: blue;
+    border-width: 5px;
+    border-radius: 10px;
+    width: 50rem;
+    height: auto;
   }
 
 .cell {
@@ -118,4 +130,5 @@ body {
     padding: 0px;
     margin: 0px;
 }
+
 
