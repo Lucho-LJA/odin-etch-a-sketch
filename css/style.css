@@ -1,0 +1,20 @@
+html {
+    font-size: 10px;
+  }
+
+body {
+  background-color: lightblue;
+}
+
+#board-container {
+    display: flex;
+    margin:0px;
+    padding: opx;
+  }
+
+.cell {
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+}
+
