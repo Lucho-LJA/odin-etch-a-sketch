@@ -49,6 +49,7 @@ function createGrid(nColums=nColumsDefault,nRows=nRowsDefault){
 inputColor.addEventListener('change', changeColorCell);
 inputColor.addEventListener('input', changeColorCell);
 resetButton.addEventListener('click',resetBoard);
+clearButton.addEventListener('click',clearBoard);
 
 window.addEventListener('DOMContentLoaded', (event) => {
     createGrid();
@@ -57,16 +58,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 //event functions
+function clearBoard(){
+    const element = document.querySelectorAll('.cell');
+    element.forEach(cellElement => cellElement.style.backgroundColor='white');
+}
 function resetBoard(){
     nColums = nColumsDefault;
     nRows = nRowsDefault;
     colorCell = colorCellDefault;
-    //const boardContainer = document.querySelector('#board-container');
     const element = document.getElementById("board-container");
     while (element.firstChild) {
-    element.removeChild(element.firstChild);
+        element.removeChild(element.firstChild);
     }
-    //boardContainer.remove('.cell');
     createGrid();
 }
 
