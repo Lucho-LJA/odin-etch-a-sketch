@@ -5,6 +5,8 @@ const clearButton = document.querySelector('#clear');
 const inputColor = document.querySelector('#input-color');
 const inputColums = document.querySelector('#input-colums');
 const inputRows = document.querySelector('#input-rows');
+const inputPencil = document.querySelector('#pencil');
+const inputEraser = document.querySelector('#eraser');
 
 
 //genral variables
@@ -14,6 +16,7 @@ const nColumsDefault = 16;
 const nRowsDefault = 16;
 const colorCellDefault = 'rgb(0, 0, 0)';
 let colorCell = colorCellDefault;
+let isPencilActive = true;
 
 //functions
 function createGrid(nColums=nColumsDefault,nRows=nRowsDefault){
@@ -52,6 +55,8 @@ resetButton.addEventListener('click',resetBoard);
 clearButton.addEventListener('click',clearBoard);
 inputColums.addEventListener('input',changeGrid);
 inputRows.addEventListener('change',changeGrid);
+inputPencil.addEventListener('change',changePencilType);
+inputEraser.addEventListener('change',changePencilType);
 
 window.addEventListener('DOMContentLoaded', (event) => {
     createGrid();
@@ -60,6 +65,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 //event functions
+function changePencilType(){
+    isPencilActive = !isPencilActive;
+}
 function changeGrid(){
     if (inputColums.value>100){
         nColums =100;
@@ -107,13 +115,20 @@ function resetBoard(){
 }
 
 function changeColorCell(){
-    colorCell = this.value;
-    console.log(`changed color to ${colorCell}`)
+        colorCell = this.value;
+        console.log(`changed color to ${colorCell}`)
+    
 }
 function changeColor(){
-    this.style.backgroundColor=colorCell;
-    console.log('color events have been created');
+    if (isPencilActive){
+        this.style.backgroundColor=colorCell;
+        console.log('color events have been created');
+    }else{
+        this.style.backgroundColor = 'white';
+        console.log(`erasered cell`)
+    }
 }
+
 
 
 
