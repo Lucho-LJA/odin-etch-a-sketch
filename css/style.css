@@ -73,7 +73,8 @@ body {
     border-radius: 3px;
     background-color: rgb(154, 154, 231);
 }
-#pencil-type div{
+
+#pencil-type div {
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -81,6 +82,29 @@ body {
     align-content: center;
     font-size: medium;
 }
+#draw-type{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    margin: 0px;
+    padding: 5px;
+    height: 4rem;
+    border-radius: 3px;
+    background-color: rgb(154, 154, 231);
+}
+.draw-option {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    justify-items: center;
+    font-size:small;
+}
+
+
+
 
 .button-option{
     width: 5rem;
