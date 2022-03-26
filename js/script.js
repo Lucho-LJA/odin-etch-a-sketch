@@ -1,27 +1,32 @@
 //variables html
-const boardContainer = document.querySelector('#board-selector');
+const boardContainer = document.querySelector('#board-container');
 const resetButton = document.querySelector('#reset');
 const clearButton = document.querySelector('#clear');
 const inputColor = document.querySelector('#input-color');
 const inputColums = document.querySelector('#input-colums');
 const inputRows = document.querySelector('#input-rows');
 
+
 //genral variables
 const boardWidth = 50;
 const boardHeight = 50;
-let colorCell = 'rgb(0, 0, 0)';
+const nColumsDefault = 16;
+const nRowsDefault = 16;
+const colorCellDefault = 'rgb(0, 0, 0)';
+let colorCell = colorCellDefault;
 
 //functions
-function createGrid(nColums=16,nRows=16){
+function createGrid(nColums=nColumsDefault,nRows=nRowsDefault){
     const cellWidth = boardWidth/nColums + "rem";
     const cellHeight = boardHeight/nRows +"rem";
     const boardContainer = document.querySelector('#board-container');
+    
     let cellRows = [];
     for (let i = 0; i < nRows; i++) {
         cellRows[i] = document.createElement('div');
         const cellRowsAtribute = document.createAttribute('class');
         cellRowsAtribute.value = 'cellRows';
-        boardContainer.setAttributeNode(cellRowsAtribute);
+        cellRows[i].setAttributeNode(cellRowsAtribute);
         boardContainer.appendChild(cellRows[i])
         for (let j = 0; j < nColums; j++) {
             const cell = document.createElement('div');
@@ -43,6 +48,7 @@ function createGrid(nColums=16,nRows=16){
 //events
 inputColor.addEventListener('change', changeColorCell);
 inputColor.addEventListener('input', changeColorCell);
+resetButton.addEventListener('click',resetBoard);
 
 window.addEventListener('DOMContentLoaded', (event) => {
     createGrid();
@@ -51,6 +57,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 //event functions
+function resetBoard(){
+    nColums = nColumsDefault;
+    nRows = nRowsDefault;
+    colorCell = colorCellDefault;
+    //const boardContainer = document.querySelector('#board-container');
+    const element = document.getElementById("board-container");
+    while (element.firstChild) {
+    element.removeChild(element.firstChild);
+    }
+    //boardContainer.remove('.cell');
+    createGrid();
+}
+
 function changeColorCell(){
     colorCell = this.value;
     console.log(`changed color to ${colorCell}`)
