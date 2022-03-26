@@ -101,6 +101,8 @@ function resetBoard(){
         element.removeChild(element.firstChild);
     }
     createGrid();
+    inputColums.value=nColumsDefault;
+    inputRows.value=nRowsDefault;
     console.log('reseted board');
 }
 
