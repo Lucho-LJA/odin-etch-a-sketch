@@ -160,6 +160,7 @@ function changeColor(){
     if (isPencilActive){
         if (drawTypeOption==1){
             this.style.backgroundColor=colorCell;
+            this.style.opacity ='1';
         }else if (drawTypeOption==2){
             this.style.backgroundColor=getRandomColor();
         }else if (drawTypeOption==3){
@@ -180,7 +181,7 @@ function changeColor(){
         
         console.log('color events have been created');
     }else{
-        this.style.opacity =0;
+        this.style.opacity ='auto';
         this.style.backgroundColor='white';
         console.log(window.getComputedStyle(this).getPropertyValue("opacity"));
         console.log(`erasered cell`)
