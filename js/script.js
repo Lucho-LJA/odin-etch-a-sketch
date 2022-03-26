@@ -17,7 +17,7 @@ const boardWidth = 50;
 const boardHeight = 50;
 const nColumsDefault = 16;
 const nRowsDefault = 16;
-const colorCellDefault = 'rgb(0, 0, 0)';
+const colorCellDefault = 'rgb(0, 0, 0, 1)';
 let colorCell = colorCellDefault;
 let isPencilActive = true;
 let drawTypeOption = 1;
@@ -129,9 +129,14 @@ function changeGrid(){
 
 function clearBoard(){
     const element = document.querySelectorAll('.cell');
-    element.forEach(cellElement => cellElement.style.backgroundColor='white');
+    element.forEach(addColorOpacity);
     console.log('cleared board');
 }
+function addColorOpacity(element,index,array){
+    element.style.backgroundColor='rgb(0,0,0,0)';
+    element.style.opacity =0;
+}
+
 function resetBoard(){
     nColums = nColumsDefault;
     nRows = nRowsDefault;
@@ -161,7 +166,7 @@ function changeColor(){
             let opacityCell=window.getComputedStyle(this).getPropertyValue("opacity");
             
             if (opacityCell == 1){
-                opacityCell = 0;
+                opacityCell = 0.1;
                 console.log(opacityCell);
             }else if (opacityCell <0.9){
                 opacityCell = Number(opacityCell) + 0.1;
